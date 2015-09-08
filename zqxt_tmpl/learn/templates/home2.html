@@ -1,8 +1,16 @@
-{% extends 'base.html' %}
- 
-{% block title %}欢迎光临首页{% endblock %}
- 
-{% block content %}
-{% include 'ad.html' %}
-这里是首页，欢迎光临
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>欢迎光临</title>
+</head>
+<body>
+欢迎光临自强学堂
+<br/>
+教程列表：
+站点：{{ info_dict.site }} 内容：{{ info_dict.content }}
+<br/>
+{% for key, value in info_dict.items %}
+    {{ key }}: {{ value }}
+{% endfor %}
+</body>
+</html>
