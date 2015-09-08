@@ -16,6 +16,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+admin.autodiscover()
+
 urlpatterns = [
+	url(r'^add/$', 'calc.views.add', name='add'),
+	url(r'^add/(\d+)/(\d+)/$', 'calc.views.add2', name='add2'),
     url(r'^admin/', include(admin.site.urls)),
 ]
