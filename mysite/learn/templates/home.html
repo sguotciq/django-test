@@ -6,6 +6,18 @@
 <body>
 <h1>HOMEPAGE</h1>
 welcome!	<br>
-template test
+template test<br>
+{{ string }}<br>
+教程列表：
+{% for i in TutorialList %}
+{{ i }}
+{% endfor %}
+<br>
+站点：{{ info_dict.site }} 内容：{{ info_dict.content }}
+<br>
+{% url 'add2' 2 3 as add %}<!--使用 as 语句将内容取别名（相当于定义一个变量），多次使用（但视图名称到网址转换只进行了一次）-->
+<li>{{add}}</li>
+<li>{{add}}</li>
+
 </body>
 <html>
