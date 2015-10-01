@@ -18,7 +18,9 @@ from django.contrib import admin
 
 urlpatterns = [
     # Examples:
-    url(r'^$', 'learn.views.index', name='home'),# Notice this line
+    url(r'^$', 'learn.views.index', name='home'),# homepage
+    url(r'^add/$', 'learn.views.add', name='add'),#add test
+    url(r'^add/(\d+)/(\d+)/$', 'learn.views.add2', name='add2'),#add test2
     url(r'^admin/', include(admin.site.urls)),
 ]
 
