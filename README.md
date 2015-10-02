@@ -20,4 +20,4 @@ db
 Django QureySet API:
 Django内置操作数据库相关的接口，不用sql
 
-
+后台功能admin
