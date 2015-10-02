@@ -15,4 +15,9 @@ models:
 db
 在models.py中建类,makemigration后migrate,自动在对应数据库中建表
 
- 
+类中可以使用自定义Field 
+
+Django QureySet API:
+Django内置操作数据库相关的接口，不用sql
+
+
