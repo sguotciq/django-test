@@ -5,28 +5,28 @@ from .fields import *
 
 # Create your models here.
 class Person(models.Model):
-	name = models.CharField(max_length=30)
-	age = models.IntegerField()
+	name = models.CharField(u'name',max_length=30)
+	age = models.IntegerField(u'age')
 	def __unicode__(self):# 在Python3中使用 def __str__(self):
 		return self.name
 
 class Article(models.Model):
-	labels = ListField()
-	title = models.CharField(max_length=100)
-	content = models.CharField(max_length=3000)
+	labels = ListField('labels')
+	title = models.CharField('title',max_length=100)
+	content = models.CharField('content',max_length=3000)
 	def __unicode__(self):# 在Python3中使用 def __str__(self):
 		return self.title
 
 
 class Blog(models.Model):
-    name = models.CharField(max_length=100)
-    tagline = models.TextField()
+    name = models.CharField('name',max_length=100)
+    tagline = models.TextField('tagline')
  
     def __unicode__(self):  # __str__ on Python 3
         return self.name
  
 class Author(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField('name',max_length=50)
     email = models.EmailField()
  
     def __unicode__(self):  # __str__ on Python 3
