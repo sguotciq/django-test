@@ -19,6 +19,9 @@ template test<br>
 {% url 'add2' 2 3 as add %}<!--使用 as 语句将内容取别名（相当于定义一个变量），多次使用（但视图名称到网址转换只进行了一次）-->
 <li>{{add}}</li>
 <li>{{add}}</li>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
     //列表
     var List = {{ List|safe }};
@@ -55,5 +58,33 @@ template test<br>
         console.log(i + Dict[i]);//注意，此处i为键值
     }
 </script>
+
+
+<form action="/add/" method="get">
+	a: <input type="text" id="a" name="a"> <br>
+	b: <input type="text" id="b" name="b"> <br>
+	<input type="submit" value="submit"> <br>
+	<p>result: <span id='result'></span></p>
+	<button type="button" id="sum">submit_ajax</button>
+</form>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+      $("#sum").click(function(){
+        var a = $("#a").val();
+        var b = $("#b").val();
+ 
+        $.get("/add/",{'a':a,'b':b}, function(ret){
+            $('#result').html(ret)
+        })
+      });
+    });
+</script>
+
+<form method="post">
+	{% csrf_token %}<!--CSRF是一种防止跨站请求的认证-->
+	{{ form }}
+	<input type="submit" value="提交">
+</form>
 </body>
 <html>
